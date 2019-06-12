@@ -16,7 +16,7 @@ services:
       - "~/Projects/Mobly/docker-compose.env"
     networks:
       net:
-        ipv4_address: 172.0.10.2
+        ipv4_address: 172.0.0.2
   mysql:
     container_name: mysql
     image: mysql
@@ -31,7 +31,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
     networks:
       net:
-        ipv4_address: 172.0.10.3
+        ipv4_address: 172.0.0.3
 networks:
   net:
     driver: bridge
@@ -39,8 +39,8 @@ networks:
       com.docker.network.enable_ipv6: "false"
     ipam:
       config:
-        - subnet: 172.0.10.0/24
-          gateway: 172.0.10.1
+        - subnet: 172.0.0.0/24
+          gateway: 172.0.0.1
 volumes:
   nginx:
   mysql:
