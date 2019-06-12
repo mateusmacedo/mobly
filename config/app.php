@@ -174,6 +174,11 @@ return [
         // Mobly\Providers\BroadcastServiceProvider::class,
         Mobly\Providers\EventServiceProvider::class,
         Mobly\Providers\RouteServiceProvider::class,
+        Mobly\Providers\InfrastructureServiceProvider::class,
+        Mobly\Providers\DomainServiceProvider::class,
+        Mobly\Providers\RepositoryServiceProvider::class,
+
+
 
     ],
 

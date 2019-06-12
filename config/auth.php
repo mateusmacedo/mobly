@@ -1,5 +1,7 @@
 <?php
 
+use Mobly\Models\User;
+
 return [
 
     /*
@@ -68,7 +70,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Mobly\User::class,
+            'model' => User::class,
         ],
 
         // 'users' => [

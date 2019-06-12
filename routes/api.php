@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,6 +11,10 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['namespace' => 'Api\V1', 'prefix' => 'v1', 'as' => 'api.v1.'], function () {
+    Route::resource('users', 'UsersController')->except(['create', 'edit']);
+    /* Custom Routes */
+    Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
+        Route::post('search', 'UsersController@search')->name('search');
+    });
 });

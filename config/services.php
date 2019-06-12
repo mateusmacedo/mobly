@@ -1,5 +1,7 @@
 <?php
 
+use Mobly\Models\User;
+
 return [
 
     /*
@@ -35,7 +37,7 @@ return [
     ],
 
     'stripe' => [
-        'model' => Mobly\User::class,
+        'model' => User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
         'webhook' => [

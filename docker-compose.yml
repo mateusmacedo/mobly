@@ -5,19 +5,18 @@ services:
     image: webdevops/php-nginx-dev:7.3
     depends_on:
       - mysql
-      - redis
     links:
       - mysql:mysql
     restart: always
     expose:
       - "80"
     volumes:
-      - "D:/Projects/home/Mobly:/app"
+      - "~/Projects/Mobly:/app"
     env_file:
-      - "D:/Projects/home/Mobly/docker-compose.env"
+      - "~/Projects/Mobly/docker-compose.env"
     networks:
       net:
-        ipv4_address: 172.0.1.2
+        ipv4_address: 172.0.10.2
   mysql:
     container_name: mysql
     image: mysql
@@ -25,26 +24,14 @@ services:
     expose:
       - "3306"
     volumes:
-      - "D:/Projects/storage/Mobly/mysql:/var/lib/mysql"
+      - "~/DockerVolumes/Mobly/mysql:/var/lib/mysql"
+      - "~/Projects/Mobly/database:/opt/database"
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
     networks:
       net:
-        ipv4_address: 172.0.1.3
-  redis:
-    container_name: redis
-    image: redis
-    expose:
-      - "6379"
-    volumes:
-      - "D:/storage/Mobly/redis:/data"
-    restart: always
-    environment:
-      - REDIS_URL=redis://cache
-    networks:
-      net:
-        ipv4_address: 172.0.1.4
+        ipv4_address: 172.0.10.3
 networks:
   net:
     driver: bridge
@@ -52,8 +39,8 @@ networks:
       com.docker.network.enable_ipv6: "false"
     ipam:
       config:
-        - subnet: 172.0.1.0/24
-          gateway: 172.0.1.1
+        - subnet: 172.0.10.0/24
+          gateway: 172.0.10.1
 volumes:
   nginx:
   mysql:
