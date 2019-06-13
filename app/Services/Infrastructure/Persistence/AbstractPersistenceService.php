@@ -24,7 +24,7 @@ abstract class AbstractPersistenceService
     {
         try {
             $model->getConnection()->beginTransaction();
-            $model->save();
+            $model->delete();
             $model->getConnection()->commit();
         } catch (Exception $exception) {
             $model->getConnection()->rollBack();
