@@ -6,10 +6,7 @@ use Tests\TestCase;
 
 class UserControllerTest extends TestCase
 {
-    /**
-     * @test
-     */
-    public function createUserTest()
+    public function testCreateUser()
     {
         $data = [
             'username' => 'joaosilva',
@@ -28,10 +25,7 @@ class UserControllerTest extends TestCase
             ->assertJson($expectResponse);
     }
 
-    /**
-     * @test
-     */
-    public function listUserTest()
+    public function testListUser()
     {
         $expectResponse = [
             'success' => true,
@@ -51,10 +45,7 @@ class UserControllerTest extends TestCase
             ->assertJson($expectResponse);
     }
 
-    /**
-     * @test
-     */
-    public function listOneUserTest()
+    public function testListOneUser()
     {
         $expectResponse = [
             'success' => true,
@@ -73,10 +64,7 @@ class UserControllerTest extends TestCase
             ->assertJson($expectResponse);
     }
 
-    /**
-     * @test
-     */
-    public function updateUserTest()
+    public function testUpdateUser()
     {
         $data = [
             'username' => 'joaosilva',
@@ -95,10 +83,7 @@ class UserControllerTest extends TestCase
             ->assertJson($expectResponse);
     }
 
-    /**
-     * @test
-     */
-    public function deleteUserTest()
+    public function testDeleteUser()
     {
         $expectResponse = [
             'success' => true
@@ -109,10 +94,7 @@ class UserControllerTest extends TestCase
             ->assertJson($expectResponse);
     }
 
-    /**
-     * @test
-     */
-    public function searchUserTest()
+    public function testSearchUser()
     {
         $data = [
             'params' => [
